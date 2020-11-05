@@ -25,7 +25,7 @@ def main():
                             
                            \u001b[32m - coded with <3 by Devansh Batham\u001b[0m 
     """
-    print(banner)
+#     print(banner)
 
     parser = argparse.ArgumentParser(description='ParamSpider a parameter discovery suite')
     parser.add_argument('-d','--domain' , help = 'Domain name of the taget [ex : hackerone.com]' , required=True)
@@ -59,28 +59,28 @@ def main():
              
     else: 
          black_list = [] # for blacklists
-    if args.exclude:
-        print(f"\u001b[31m[!] URLS containing these extensions will be excluded from the results   : {black_list}\u001b[0m\n")
+#     if args.exclude:
+#         print(f"\u001b[31m[!] URLS containing these extensions will be excluded from the results   : {black_list}\u001b[0m\n")
     
     final_uris = extractor.param_extract(response , args.level , black_list, args.placeholder)
     save_it.save_func(final_uris , args.output , args.domain)
 
-    if not args.quiet:
-        print("\u001b[32;1m")
+    if not args.quiet:  
+#         print("\u001b[32;1m")
         print('\n'.join(final_uris))
-        print("\u001b[0m")
+#         print("\u001b[0m")
 
     
-    print(f"\n\u001b[32m[+] Total unique urls found : {len(final_uris)}\u001b[31m")
-    if args.output:
-        if "/" in args.output:
-            print(f"\u001b[32m[+] Output is saved here :\u001b[31m \u001b[36m{args.output}\u001b[31m" )
+#     print(f"\n\u001b[32m[+] Total unique urls found : {len(final_uris)}\u001b[31m")
+#     if args.output:
+#         if "/" in args.output:
+#             print(f"\u001b[32m[+] Output is saved here :\u001b[31m \u001b[36m{args.output}\u001b[31m" )
 
-        else:
-            print(f"\u001b[32m[+] Output is saved here :\u001b[31m \u001b[36moutput/{args.output}\u001b[31m" )
-    else:
-        print(f"\u001b[32m[+] Output is saved here   :\u001b[31m \u001b[36moutput/{args.domain}.txt\u001b[31m")
-    print("\n\u001b[31m[!] Total execution time      : %ss\u001b[0m" % str((time.time() - start_time))[:-12])
+#         else:
+#             print(f"\u001b[32m[+] Output is saved here :\u001b[31m \u001b[36moutput/{args.output}\u001b[31m" )
+#     else:
+#         print(f"\u001b[32m[+] Output is saved here   :\u001b[31m \u001b[36moutput/{args.domain}.txt\u001b[31m")
+#     print("\n\u001b[31m[!] Total execution time      : %ss\u001b[0m" % str((time.time() - start_time))[:-12])
 
 
 
